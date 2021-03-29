@@ -1,0 +1,22 @@
+
+
+<div class="d-flex justify-content-between m-3">
+  <h5>My Articles</h5>
+  <%= link_to 'New Article', new_article_path, class: "btn btn-primary" %>
+</div>
+<% @articles.each do |article|%>
+  <%= link_to article_path(article), class: "text-decoration-none text-dark" do %>
+    <div class="card mb-3">
+      <div class="card-body">
+        <div clas="text text-light">
+          <%= article.created_at.strftime("%B %d, %y") %>
+        </div>
+        <div class="card-title">
+          <h4><%= article.title %></h4>
+        </div>
+        <%= truncate(strip_tags(article.content.to_s), length: 100 )%>
+      </div>
+    </div>
+  <% end %>
+<% end %>
+    

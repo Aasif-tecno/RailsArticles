@@ -1,0 +1,23 @@
+<div class="text text-center">
+  <h1><%= @category.category.upcase %></h1>
+  <% if user_signed_in? && current_user.admin? %>
+    <%= link_to 'Edit', edit_category_path(@category) %>
+  <% end %>
+</div>
+<% @category.articles.each do |article| %>
+  <%= link_to article_path(article), class: "text-decoration-none text-dark" do %>
+    <div class="mb-3">
+      <div class="card-body">
+        <div clas="text text-light">
+          <%= article.created_at.strftime("%b %d, %y") %>
+        </div>
+        <div class="card-title h4">
+          <h4><%= article.title %></h4>
+        </div>
+        <%= truncate(strip_tags(article.content.to_s), length: 100 )%>
+      </div>
+    </div><hr>
+  <% end %>
+<% end %>
+
+

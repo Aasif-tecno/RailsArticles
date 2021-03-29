@@ -1,0 +1,12 @@
+<div class="d-flex justify-content-between">
+  <h2>Editing Article</h2> 
+  <div>
+    <%= link_to 'Show', @article, class: "btn btn-primary" %> |
+    <%= link_to 'Back', articles_path, class: "btn btn-info" %>
+  </div>
+</div>
+
+<%= render 'form', article: @article %>
+
+
+
