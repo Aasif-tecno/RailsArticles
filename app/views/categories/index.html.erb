@@ -1,6 +1,8 @@
 <div class="d-flex justify-content-between">
   <h3>Categories</h3>
-  <%= link_to 'New Category', new_category_path, class: "btn btn-success" %>
+  <% if user_signed_in? %>
+    <%= link_to 'New Category', new_category_path, class: "btn btn-success" %>
+  <% end %>
 </div>
 <ul>
 <% @categories.each do |cat|%>
