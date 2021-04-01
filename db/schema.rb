@@ -66,6 +66,8 @@ ActiveRecord::Schema.define(version: 2021_03_29_062521) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "article_id"
+    t.integer "articles_id"
+    t.index ["articles_id"], name: "index_categories_on_articles_id"
   end
 
   create_table "comments", force: :cascade do |t|

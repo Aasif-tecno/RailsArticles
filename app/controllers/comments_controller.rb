@@ -23,7 +23,7 @@ before_action :set_article, except: [:new]
 
   def destroy
     @comment = @article.comments.find(params[:id])
-    @coment.destroy
+    @comment.destroy
     redirect_to @article
   end
 
@@ -35,7 +35,7 @@ private
   end
 
   def set_comments
-    @comment = Comments.find(params[:comment_id])
+    @comment = Comment.find(params[:id])
   end
 
   def comment_params
